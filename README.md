@@ -20,7 +20,7 @@ int* allocate(int size);       // size in bytes
 void  deallocate(int *ptr);    // pointer to allocated memory
 
 
-3. Sample Usage
+3. Sample Usage:
 int *mem[100];
 mem[0] = allocate(128);     // 128 bytes
 mem[1] = allocate(1024);    // 1 KB
@@ -29,7 +29,7 @@ deallocate(mem[1]);         // free 1 KB block
 mem[1] = allocate(512);     // reuse freed space
 
 
-4. How It Works
+4. How It Works:
 Static memory array (memory[]) simulates RAM.
 Block structure stores:
 Start address
@@ -48,12 +48,12 @@ Supports reuse of freed blocks
 No OS dependency (bare-metal style)
 Simple and easy to understand
 
-6. Limitations
+6. Limitations:
 No block merging → fragmentation can occur.
 Max 100 allocations at a time.
 No memory alignment guarantees.
 
-7. Example Output
+7. Example Output:
 Simulation complete.
 
 
