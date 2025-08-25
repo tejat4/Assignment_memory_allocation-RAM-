@@ -43,13 +43,15 @@ int *allocate(int size)
 			}
 		}
 	}
-	int i;
 	//resuse a previously freed block if big enough
-	if(blocks[i]->flag && blocks[i]->size >= (size_t)size)
+	for(int i=0;i<max_blocks;i++)
+		{
+	if(block[i]!=NULL && (blocks[i]->flag==1) && blocks[i]->size >= (size_t)size)
 	{
 		blocks[i]->flag=0; //make the block use it again
 		return (int*)blocks[i]->addr; //return original starting address
 	}
+		}
 	return NULL; //no slot or reusable block available
 }
 
